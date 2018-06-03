@@ -1,5 +1,7 @@
 # Jobs: A web app for viewing and applying for job roles!
 
+[gitHub readme](https://github.com/emmmarosewalker/SinglePageJobApp)
+
 This project is a single-page application (SPA) that uses jQuery to make AJAX requests to the server's API endpoints.
 When the page is first loaded, an AJAX request is made to get the job data from the server. 10 positions fill the page with a
 button to get more.
