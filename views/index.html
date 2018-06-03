@@ -1,0 +1,118 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Jobs!</title>
+	<link rel="stylesheet" href="/static/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Londrina+Outline|Londrina+Solid|Noto+Sans" rel="stylesheet">
+</head>
+<body>
+	<main id="index">
+		<section id="left-pane" class="">
+			<div class="vertical-text">
+				<h1 class="solid-font">Jobs.</h1>
+				<h2 id="job-title-heading" class="outline-font">What could your next job be?</h2>
+			</div>
+			<article class="hidden" id="more-details">
+				<img id="close-button" src="/static/img/close.jpg">
+				<div id="job-details">
+					<!-- Job details get dynamically inserted here -->
+				</div>
+				
+				<!-- Job details template -->
+				<template id="more_details_template">
+					<img class="icon" src="{{company_logo}}">
+					<h3>{{title}}</h3>
+					<h4>Where: {{location}}</h4>
+					<a href="{{company_url}}">{{company}}</a>
+					<p>Job Type: {{type}}</p>
+					<hr>
+					<div>
+						{{{description}}}
+						<hr>
+						<p>How to Apply:</p>
+						{{{how_to_apply}}}
+						<p>Or, here:</p>
+					</div>
+				</template>
+				<!-- End job details template -->
+				
+				<div class="form-style">
+					<h3 class="form-label">Apply for this job:</h3>
+					<!-- success message to show when application submitted -->
+					<p id="success-message" class="cornflowerblue hidden">Thanks for your application! We will get back to you within 5 days. You can view your applications
+						by clicking the briefcase icon.
+					</p>
+					<!-- Application form -->
+					<form id="application-form" class="">
+						<input id="first_name" name="first_name" placeholder="First Name">
+						<input id="last_name" name="last_name"placeholder="Last Name">
+						<input id="years_experience" name="years_experience" placeholder="Years Experience">
+						<input id="expertise" name="expertise" placeholder="Expertise">
+						<label for="position_id">POSITION ID</label>
+						<input id="position_id" name="position_id" readonly>
+						<p id="invalid-input" class="hidden">One or more fields not completed. Try again.</p>
+						<input class="button solid-font uppercase" id="apply-button" type="submit" value="submit">
+					</form>
+					<!--end application form -->
+				</div><!-- .form-style -->
+			</article><!-- #more-details -->
+		</section><!-- #left-pane -->
+		<section id="right-pane">
+			<div id="search-bar">
+				<!-- start search bar form -->
+				<form class="inline" id="search-box">
+					<label class="form-label" for="search">Search: </label>
+					<input id="search" name="search">
+					<input id="search-submit" value="Go" type="submit">
+				</form>
+				<div>
+					<p class="hidden form-label mt-half" id="search-again">
+						Search again?
+					</p>
+				</div>
+				<!-- end search bar form -->
+				<img id="my-jobs" class="small-icon ml-half" src="https://image.flaticon.com/icons/svg/313/313425.svg">
+				<div id="my-jobs-dropdown" class="hidden">
+					<ul>
+					</ul>
+				</div><!-- #my-jobs-dropdown -->
+			</div><!-- #search-bar -->
+			<section id="job-postings">
+				<!-- job-postings dynamically inserted here using jQuery -->
+			</section>
+			
+			<template id="positions_template">
+				{{#each positions}}
+				<div class="card job-card" id="{{id}}">
+					<img src="{{company_logo}}">
+					<div class="card-details">
+						<h3>{{title}}</h3>
+						<h4>{{location}}</h4>
+						<h5>{{company}}</h5>
+					</div>
+					<div class="triangle border-right-color hidden">
+					</div>
+				</div>
+				{{/each}}
+			</template><!-- #positions_template -->
+			
+			<template id="load_more_template">
+				<div class="card" id="load-more-card">
+					<img src="https://image.flaticon.com/icons/svg/860/860820.svg">
+					<div class="card-details">
+						<h4>Load More Jobs...</h4>
+					</div>
+				</div><!-- #load-more-card -->
+			</template><!-- #load_more_template -->
+		</section><!-- #right-pane -->
+	</main>
+	
+	<!-- load javascript libraries -->
+	<script src="/static/js/jquery-3.3.1.min.js"></script>
+	<script src="/static/js/handlebars.min.js"></script>
+	<!-- load project javascript -->
+	<!-- note that you can add more modules if you wish -->
+	<script src="/static/js/model.js"></script>
+	<script src="/static/js/script.js"></script>
+</body>
+</html>
