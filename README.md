@@ -106,10 +106,6 @@ positions to load, then call the function responsible for rendering the position
 
 Install bottle, start server
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
 ## Built With
 
 * [jQuery](http://api.jquery.com/) - Javascript Framework
